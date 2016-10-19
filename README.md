@@ -22,6 +22,8 @@ npm run push
 
 In another terminal, run `node api` to start the Express Server.
 
+Now, press a button!
+
 ##### known issues
 - if you add `debounce` to the options object passed to `setWatch`, the `e` object passed to the handler function no longer contains the `pin` property.
 
