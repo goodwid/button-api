@@ -1,5 +1,7 @@
-var buttons = [0,2,4,5,12,13,14,15];
 var config = require('./config');
+var board = require('./boards');
+var buttons = board(config.board);  
+var buttons = [0,2,4,5,12,13,14,15];
 if (!config) {
   console.log('Config not found!');
   process.exit(1);

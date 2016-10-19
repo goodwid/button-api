@@ -1,5 +1,5 @@
 {
-  "name": "lambda-trigger",
+  "name": "button-api",
   "version": "0.0.0",
   "private": true,
   "main": "main.js",
@@ -16,5 +16,7 @@
     "espruino": "1.86"
   },
   "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
   }
 }
