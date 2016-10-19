@@ -1,0 +1,20 @@
+{
+  "name": "lambda-trigger",
+  "version": "0.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "projectInit": "cp skeleton.config.js config.js",
+    "push": "node ./scripts/push && npm run repl",
+    "repl": "node ./scripts/repl"
+  },
+  "devDependencies": {
+    "thingssdk-deployer": "github:thingssdk/thingssdk-deployer",
+    "thingssdk-espruino-strategy": "github:thingssdk/thingssdk-espruino-strategy"
+  },
+  "engines": {
+    "espruino": "1.86"
+  },
+  "dependencies": {
+  }
+}
