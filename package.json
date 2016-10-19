@@ -4,7 +4,7 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "projectInit": "cp skeleton.config.js config.js",
+    "projectInit": "cp skeleton.config.js config.js; echo 'skeleton.config.js' >> .gitignore",
     "push": "node ./scripts/push && npm run repl",
     "repl": "node ./scripts/repl"
   },

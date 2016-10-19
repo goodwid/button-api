@@ -16,6 +16,7 @@ clone this repo, edit the skeleton.config.js to add your local environment infor
 <pre>
 npm i
 npm run projectInit
+thingssdk devices
 npm run push
 </pre>
 
