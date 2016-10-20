@@ -7,7 +7,7 @@ This project will connect your controller to wifi, and connect to an Express ser
   - [Adafruit's Feather Huzzah]()
   - [NodeMCU]()
 1. Your hardware should be flashed with [ThingsSDK Flasher.js](https://github.com/thingsSDK/flasher.js) using the latest [Espruino JS runtime](http://www.espruino.com/EspruinoESP8266).
-1. You should have [ThinkSDK-cli](https://github.com/thingsSDK/thingssdk-cli) installed.
+1. You should have [ThingsSDK-cli](https://github.com/thingsSDK/thingssdk-cli) installed.
 
 ##### board setup
 On a breadboard, connect 3v and ground to the rails, then wire ground to button to pin (except pin 15 on Feather Huzzah, which has a built-in pulldown resistor and needs to be wired to 3v rail).
