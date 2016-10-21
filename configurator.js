@@ -31,27 +31,27 @@ Object.keys(ifaces).forEach(ifname => {
       ips.push(result);
     });
   });
-config.ssid = prompt('What is your wireless SSID? ');
-config.wifiPw = prompt('What is your wireless password? ');
-console.log('Where will your API server be running?');
-console.log('The following network interfaces were found: ');
-ips.forEach((ip,index) => console.log(`${index}\) name: ${ip.ifname}\t\t\tIP address: ${ip.address}`));
-console.log(`${ips.length}) Enter another address to use.`)
+config.ssid = prompt(chalk.yellow('What is your wireless SSID? '));
+config.wifiPw = prompt(chalk.yellow('What is your wireless password? '));
+console.log(chalk.yellow('Where will your API server be running?'));
+console.log(chalk.yellow('The following network interfaces were found: '));
+ips.forEach((ip,index) => console.log(chalk.green(`${index}\) name: ${ip.ifname}\t\t\tIP address: ${ip.address}`)));
+console.log(chalk.green(`${ips.length}) Enter another address to use.`));
 do {
-  ipChoice = +prompt('Which network interface is running the server? ', 0);
+  ipChoice = +prompt(chalk.yellow('Which network interface is running the server? '), 0);
 } while ((!Number.isInteger(ipChoice)) || (ipChoice < 0 || ipChoice > ips.length));
 
 if (ipChoice === ips.length) {
   do {
-    config.address = prompt('Enter the IP address where the API will be running: ');
+    config.address = prompt(chalk.yellow('Enter the IP address where the API will be running: '));
   } while (!/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(config.address));
 } else {
   config.address = ips[ipChoice].address;
 }
-console.log('What board do you have?');
-supportedBoards.forEach((board, index) => console.log(`${index}\) ${board.name}`));
+console.log(chalk.yellow('What board do you have?'));
+supportedBoards.forEach((board, index) => console.log(chalk.green(`${index}\) ${board.name}`)));
 do {
-  boardChoice = +prompt('Which board are you using? ', 0);
+  boardChoice = +prompt(chalk.yellow('Which board are you using? '), 0);
 } while ((!Number.isInteger(boardChoice)) || (boardChoice < 0 || boardChoice > supportedBoards.length));
 config.board = supportedBoards[boardChoice].id;
 output += `
@@ -70,6 +70,6 @@ module.exports = function () {
 `;
 
 fs.writeFile(filename, output, err => {
-  if(err) return console.log(err);
-  console.log('Config file written!')
-})
+  if(err) return console.log(chalk.bold.red(err));
+  console.log(chalk.bgRed.bold.yellow('Config file written!'));
+});
