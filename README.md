@@ -8,9 +8,10 @@ This project will connect your controller to wifi, and connect to an Express ser
   - [NodeMCU](http://www.electrodragon.com/product/nodemcu-lua-amica-r2-esp8266-wifi-board/)
 1. Your hardware should be flashed with [ThingsSDK Flasher.js](https://github.com/thingsSDK/flasher.js) using the latest [Espruino JS runtime](http://www.espruino.com/EspruinoESP8266).
 1. You should have [ThingsSDK-cli](https://github.com/thingsSDK/thingssdk-cli) installed.
+1. Other accessories: breadboard, wires, at least one button.
 
 ##### board setup
-On a breadboard, connect 3v and ground to the rails, then wire ground to button to pin (except pin 15 on Feather Huzzah, which has a built-in pulldown resistor and needs to be wired to 3v rail).
+On a breadboard, connect 3v and ground to the appropriate rails, then connect ground to button, then button to a GPIO pin (except pin 15 on Feather Huzzah, which has a built-in pulldown resistor and needs to be wired to the 3v rail).
 
 ##### deploy
 clone this repo, edit the skeleton.config.js to add your local environment information, then run the following:
