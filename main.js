@@ -1,6 +1,10 @@
+var boards = {
+  featherHuzzah: [0,2,4,5,12,13,14,15],
+  NodeMCU: [D0,D1,D2,D3,D4,D12,D13,D14,D15]
+};
 var config = require('./config')();
-var board = require('./boards')
-var buttons = board(config.board);
+
+var buttons = boards[config.board];
 
 var http = require('http');
 var wifi = require('Wifi');
