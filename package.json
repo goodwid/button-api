@@ -9,7 +9,9 @@
     "repl": "node ./scripts/repl"
   },
   "devDependencies": {
+    "chalk": "^1.1.3",
     "inquirer": "^1.2.2",
+    "prompt-sync": "^4.1.4",
     "thingssdk-deployer": "github:thingssdk/thingssdk-deployer",
     "thingssdk-espruino-strategy": "github:thingssdk/thingssdk-espruino-strategy"
   },
