@@ -17,7 +17,7 @@ clone this repo, edit the skeleton.config.js to add your local environment infor
 
 <pre>
 npm i
-npm run projectInit
+npm run configure
 thingssdk devices
 npm run push
 </pre>

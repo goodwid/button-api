@@ -5,7 +5,7 @@ const os = require('os');
 const chalk = require('chalk');
 const supportedBoards = [
   {
-    name: 'Adafruit\s Feather Huzzah',
+    name: 'Adafruit\'s Feather Huzzah',
     id: 'featherHuzzah'
   },
   {
@@ -54,8 +54,7 @@ do {
   boardChoice = +prompt(chalk.yellow('Which board are you using? '), 0);
 } while ((!Number.isInteger(boardChoice)) || (boardChoice < 0 || boardChoice > supportedBoards.length));
 config.board = supportedBoards[boardChoice].id;
-output += `
-var port = 9000;
+output += `var port = 9000;
 var localIp = '${config.address}';
 var url = 'http://' + localIp + ':' + port + '/button/';
 
