@@ -4,8 +4,8 @@ This project will connect your controller to wifi, and connect to an Express ser
 ##### Prerequisites
 
 1. You will need a supported ESP8266 microcontroller.  Preconfigured boards, thus far, are:
-  - [Adafruit's Feather Huzzah]()
-  - [NodeMCU]()
+  - [Adafruit's Feather Huzzah](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview)
+  - [NodeMCU](http://www.electrodragon.com/product/nodemcu-lua-amica-r2-esp8266-wifi-board/)
 1. Your hardware should be flashed with [ThingsSDK Flasher.js](https://github.com/thingsSDK/flasher.js) using the latest [Espruino JS runtime](http://www.espruino.com/EspruinoESP8266).
 1. You should have [ThingsSDK-cli](https://github.com/thingsSDK/thingssdk-cli) installed.
 

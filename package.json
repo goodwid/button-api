@@ -9,6 +9,7 @@
     "repl": "node ./scripts/repl"
   },
   "devDependencies": {
+    "inquirer": "^1.2.2",
     "thingssdk-deployer": "github:thingssdk/thingssdk-deployer",
     "thingssdk-espruino-strategy": "github:thingssdk/thingssdk-espruino-strategy"
   },
