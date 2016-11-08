@@ -13,7 +13,8 @@
     "inquirer": "^1.2.2",
     "prompt-sync": "^4.1.4",
     "thingssdk-deployer": "github:thingssdk/thingssdk-deployer",
-    "thingssdk-espruino-strategy": "github:thingssdk/thingssdk-espruino-strategy"
+    "thingssdk-espruino-strategy": "github:thingssdk/thingssdk-espruino-strategy",
+    "wifiscanner": "^1.0.1"
   },
   "engines": {
     "espruino": "1.86"
