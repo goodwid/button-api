@@ -23,7 +23,7 @@ wifi.connect(config.ssid, {password:config.wifiPw}, err => {
 
 function handler (e) {
   http.get(config.url + e.pin, function(res) {
-    var content = '';
+    var content = ' ';
     res.on('data', function(data) {
       content += data;
     });

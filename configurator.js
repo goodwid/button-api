@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const prompt = require('prompt-sync')();
 const os = require('os');
 const chalk = require('chalk');
+const prompt = require('prompt-sync')();
 const scanner = require('wifiscanner')();
 
 const supportedBoards = [
@@ -31,15 +31,17 @@ Object.keys(ifaces).forEach(ifname => {
 
 scanner.scan((err, networks) => {
   if (err) console.log(chalk.red.bold(err));
-  ssids = networks.map(network => network.ssid);
+  ssids = networks.map(network => network.ssid).sort().filter((el, pos, self) => self.indexOf(el) === pos);
   console.log(chalk.bold.yellow('The following wireless addresses were found:'));
-  ssids.forEach((ssid, index) => console.log(chalk.green(`${index}\) name: ${ssid}`)));
+  ssids.forEach((ssid, index) => {
+    console.log(chalk.green(`${index}\) name: ${ssid}`));
+  });
   do {
     ssidChoice = +prompt(chalk.bold.yellow('Select the wireless network to use: '));
   } while ((!Number.isInteger(ssidChoice)) || (ssidChoice < 0 || ssidChoice > ssids.length));
   config.ssid = ssids[ssidChoice];
-  config.wifiPw = prompt(chalk.bold.yellow('Enter your wireless password:  '));
-  console.log(chalk.bold.yellow('\nThe following network interfaces were found: '));
+  config.wifiPw = prompt(chalk.bold.yellow('Enter your wireless password: '));
+  console.log(chalk.bold.yellow('\nThe following network interfaces were found:'));
   ips.forEach((ip,index) => console.log(chalk.green(`${index}\) name: ${ip.ifname}\t\t\tIP address: ${ip.address}`)));
   console.log(chalk.green(`${ips.length}) Enter another address to use.`));
   do {
@@ -60,18 +62,18 @@ scanner.scan((err, networks) => {
   } while ((!Number.isInteger(boardChoice)) || (boardChoice < 0 || boardChoice > supportedBoards.length));
   config.board = supportedBoards[boardChoice].id;
   output += `var port = 9000;
-  var localIp = '${config.address}';
-  var url = 'http://' + localIp + ':' + port + '/button/';
+var localIp = '${config.address}';
+var url = 'http://' + localIp + ':' + port + '/button/';
 
-  export default function () {
-    return {
-      board: '${config.board}',
-      ssid: '${config.ssid}',
-      wifiPw: '${config.wifiPw}',
-      url: url
-    };
-  }
-  `;
+export default function () {
+  return {
+    board: '${config.board}',
+    ssid: '${config.ssid}',
+    wifiPw: '${config.wifiPw}',
+    url: url
+  };
+}
+`;
 
   fs.writeFile(filename, output, err => {
     if(err) return console.log(chalk.bold.red(err));
